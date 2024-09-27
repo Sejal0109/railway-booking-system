@@ -16,6 +16,38 @@ A Railway Management System similar to IRCTC, designed to allow users to check t
 - **Database:** PostgreSQL with Prisma ORM
 - **Authentication:** JWT (JSON Web Tokens)
 
+## API Endpoints
+
+### Authentication
+
+- **Register User**  
+  `POST /api/auth/register`  
+  Registers a new user with name, email, and password.
+
+- **Login User**  
+  `POST /api/auth/login`  
+  Logs in an existing user and returns a JWT token for authentication.
+
+### Train Operations (Admin)
+
+- **Add Train** (Admin only)  
+  `POST /api/trains`  
+  Adds a new train with a source, destination, and seat availability. This endpoint is protected by an API key.
+
+### User Operations
+
+- **Get Seat Availability**  
+  `GET /api/trains?source=<source>&destination=<destination>`  
+  Retrieves all trains between the given source and destination, along with seat availability.
+
+- **Book Seat**  
+  `POST /api/bookings`  
+  Books a seat on a train for a logged-in user. This requires a valid JWT token.
+
+- **Get Booking Details**  
+  `GET /api/bookings/:id`  
+  Retrieves booking details for the specified booking ID.
+
 ## Setup Instructions
 
 ### Prerequisites
